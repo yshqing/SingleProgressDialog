@@ -1,1 +1,1 @@
-include ':singleprogressdialog'
+include ':singleprogressdialog', ':example'
