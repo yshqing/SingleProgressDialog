@@ -1,13 +1,12 @@
 package com.ysq.android.utils.singleprogressdialog;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 
 import java.lang.ref.WeakReference;
 
 public class SingleProgressDialog {
 
-    private ProgressDialog mProgressDialog;
+    private XProgressDialog mProgressDialog;
     final WeakReference<Activity> mContext;
     private static SingleProgressDialog mSelf;
 
@@ -25,15 +24,16 @@ public class SingleProgressDialog {
         return mSelf;
     }
 
-    public void show(String title, CharSequence content) {
+    public void show(String content) {
         dismiss();
         if (mContext.get() != null) {
-            mProgressDialog = ProgressDialog.show(mContext.get(), title, content, true);
+            mProgressDialog = new XProgressDialog(mContext.get(), content);
+            mProgressDialog.show();
         }
     }
 
     public void show() {
-        show(null, null);
+        show(null);
     }
 
     public void dismiss() {

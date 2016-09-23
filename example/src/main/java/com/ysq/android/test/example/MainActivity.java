@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SingleProgressDialog.getInstance(MainActivity.this).show();
+                SingleProgressDialog.getInstance(MainActivity.this).show("加载中...");
                 mHandler.sendEmptyMessageDelayed(0, 1000*5);
             }
         });
