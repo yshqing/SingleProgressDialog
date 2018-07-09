@@ -42,4 +42,10 @@ public class SingleProgressDialog {
             mProgressDialog = null;
         }
     }
+
+    public void setMessageText(String messageText) {
+        if (mProgressDialog != null) {
+            mProgressDialog.setMessageText(messageText);
+        }
+    }
 }

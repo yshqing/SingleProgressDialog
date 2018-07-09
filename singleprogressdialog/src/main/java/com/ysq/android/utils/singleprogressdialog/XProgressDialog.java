@@ -13,7 +13,7 @@ import android.widget.TextView;
  */
 public class XProgressDialog extends AlertDialog {
     protected String messageText = "";
-
+    private TextView tvMessage;
     public XProgressDialog(Context context) {
         super(context);
     }
@@ -27,7 +27,7 @@ public class XProgressDialog extends AlertDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_xprogressdialog_circle_progress);
-        TextView tvMessage = (TextView) findViewById(R.id.message);
+        tvMessage = (TextView) findViewById(R.id.message);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress);
         if (tvMessage != null) {
             if (!TextUtils.isEmpty(messageText)) {
@@ -39,5 +39,11 @@ public class XProgressDialog extends AlertDialog {
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
+    }
+
+    protected void setMessageText(String messageText) {
+        if (tvMessage != null) {
+            tvMessage.setText(messageText);
+        }
     }
 }
